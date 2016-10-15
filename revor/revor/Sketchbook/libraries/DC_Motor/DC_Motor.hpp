@@ -52,7 +52,7 @@ public:
     //void setDelay(int);
     void setSpeed(int);
     
-    void controlRevor_Motor(int,bool,bool,bool,bool);
+    void controlRevor_Motor(int,bool,bool);
     
 private:
     

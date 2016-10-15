@@ -2,9 +2,6 @@
 //  DC_Motor.cpp
 //  DC_Motor_Firmware
 //
-//  Created by VARZIELA on 09.10.16.
-//  Copyright © 2016 VARZIELA. All rights reserved.
-//
 
 #include "DC_Motor.hpp"
 
