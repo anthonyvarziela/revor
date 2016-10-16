@@ -162,6 +162,8 @@ int Wii_Chuck::readZeroJoyY()
 
 void Wii_Chuck::dataDisplay()
 {
+    Serial.println ("************ Object Wii Chuck ************");
+
     Serial.print (mJoyXrecalib);
     Serial.print ("\t");
     Serial.print (mJoyYrecalib);

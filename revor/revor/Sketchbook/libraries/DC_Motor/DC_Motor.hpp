@@ -55,6 +55,9 @@ public:
     
     void run(int,int,char*);
     
+    //
+    void interfaceDisplayObject();
+    
 private:
     
     int mSpeed1; // PWM motor speed

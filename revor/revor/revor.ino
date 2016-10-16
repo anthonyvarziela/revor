@@ -38,14 +38,11 @@ void setup()
     Serial.begin(115200);
     delay(100);
     oCmd.initialize();
-    //ff.initialize();
 }
 
 // Add loop code
 void loop()
 {
-    
-    //ff.update();
     oCmd.update();
     delay(100);
 }

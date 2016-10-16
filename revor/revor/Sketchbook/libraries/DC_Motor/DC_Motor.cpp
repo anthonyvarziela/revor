@@ -5,14 +5,11 @@
 
 #include "DC_Motor.hpp"
 
-DC_Motor::DC_Motor()
+DC_Motor::DC_Motor():
+mEn1(0), mEn2(0),
+mIn1(0), mIn2(0), mIn3(0),mIn4(0)
 {
-    initializeAll();
-}
-
-DC_Motor::DC_Motor(int aMotor)
-{
-    initialize(aMotor);
+    Serial.println("Default Constructor -> MotorFirmware");
 }
 
 void DC_Motor::initializeAll()
@@ -30,8 +27,12 @@ void DC_Motor::setAllEnablePins()
     
     pinMode(mEn1, OUTPUT);
     pinMode(mEn2, OUTPUT);
+    
+    run(1,0,"RELEASE");
+    run(2,0,"RELEASE");
 }
 
+// By default
 void DC_Motor::setAllControlPins()
 {
     mIn1 = CONTROLPIN1;
@@ -146,20 +147,22 @@ void DC_Motor::run(int aMotor, int aSpeed, char* asCmd)
 {
     bool bIn1 = 0; bool bIn2 = 0;
     
+    interfaceDisplayObject();
+    
     if (strcmp(asCmd,"FORWARD"))
     {
-        bIn1 = 0;
-        bIn2 = 1;
+        bIn1 = LOW;
+        bIn2 = HIGH;
     }
-    else if (strcmp(asCmd,"BACWARD"))
+    else if (strcmp(asCmd,"BACKWARD"))
     {
-        bIn1 = 1;
-        bIn2 = 0;
+        bIn1 = HIGH;
+        bIn2 = LOW;
     }
     else
     {
-        bIn1 = 0;
-        bIn2 = 0;
+        bIn1 = LOW;
+        bIn2 = LOW;
     }
     
     switch (aMotor) {
@@ -185,6 +188,27 @@ void DC_Motor::run(int aMotor, int aSpeed, char* asCmd)
         default:
             break;
     }
+}
+
+void DC_Motor::interfaceDisplayObject()
+{
+    Serial.println("*************** Object Interface : ***************");
+    Serial.print("Speed : ("); Serial.print(mSpeed1);
+    Serial.print(","); Serial.print(mSpeed2); Serial.print(")");
+    Serial.println("");
+    
+    Serial.println("Motor 1 :");
+    Serial.print("PinEnable : "); Serial.println(mEn1);
+    Serial.print("PinControls ("); Serial.print(mIn1);
+    Serial.print(","); Serial.print(mIn2); Serial.print(")");
+    Serial.println("");
+    
+    Serial.println("Motor 2 :");
+    Serial.print("PinEnable : "); Serial.print(mEn2);
+    Serial.print("PinControls : ("); Serial.print(mIn3);
+    Serial.print(","); Serial.print(mIn4); Serial.print(")");
+    Serial.println("");
+    
 }
 
 
