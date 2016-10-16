@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include "Arduino.h"
+#include <string.h>
 
 // ********* Defaults Values *********
 
@@ -50,13 +51,14 @@ public:
     void displayInitialization();
     
     //void setDelay(int);
-    void setSpeed(int);
+    void setSpeed(int,int);
     
-    void run(int,bool,bool);
+    void run(int,int,char*);
     
 private:
     
-    int mSpeed; // PWM motor speed
+    int mSpeed1; // PWM motor speed
+    int mSpeed2; // PWM motor speed
     
     // enable pins
     byte mEn1;

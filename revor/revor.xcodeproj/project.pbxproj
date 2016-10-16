@@ -11,7 +11,7 @@
 		9722001B1DB2A6A00067EEC9 /* Wii_Chuck.h in Sources */ = {isa = PBXBuildFile; fileRef = 9782001B1DB2A6A00067EEC9 /* Wii_Chuck.h */; };
 		9782001C1DB2A6A00067EEC9 /* DC_Motor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 978200171DB2A6A00067EEC9 /* DC_Motor.cpp */; };
 		9782001D1DB2A6A00067EEC9 /* Wii_Chuck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9782001A1DB2A6A00067EEC9 /* Wii_Chuck.cpp */; };
-		978200211DB2BE080067EEC9 /* Interface_CommandeMotor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 978200201DB2BE080067EEC9 /* Interface_CommandeMotor.cpp */; };
+		978200261DB38E8D0067EEC9 /* Interface_CommandeMotor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 978200241DB38E8D0067EEC9 /* Interface_CommandeMotor.cpp */; };
 		9782FF781DB298E60067EEC9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9782FF771DB298E60067EEC9 /* main.cpp */; };
 		AA2A161015200242AA000006 /* abi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AAAA161015200242AA000006 /* abi.cpp */; };
 		AA2A161015200242AA000007 /* Arduino.h in Sources */ = {isa = PBXBuildFile; fileRef = AAAA161015200242AA000007 /* Arduino.h */; };
@@ -423,9 +423,8 @@
 		978200181DB2A6A00067EEC9 /* DC_Motor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DC_Motor.hpp; sourceTree = "<group>"; };
 		9782001A1DB2A6A00067EEC9 /* Wii_Chuck.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wii_Chuck.cpp; sourceTree = "<group>"; };
 		9782001B1DB2A6A00067EEC9 /* Wii_Chuck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wii_Chuck.h; sourceTree = "<group>"; };
-		9782001F1DB2B2010067EEC9 /* Interface_CommandeMotor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Interface_CommandeMotor.h; sourceTree = "<group>"; };
-		978200201DB2BE080067EEC9 /* Interface_CommandeMotor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Interface_CommandeMotor.cpp; sourceTree = "<group>"; };
-		978200221DB36A850067EEC9 /* firmwareMotor_NS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = firmwareMotor_NS.h; sourceTree = "<group>"; };
+		978200241DB38E8D0067EEC9 /* Interface_CommandeMotor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Interface_CommandeMotor.cpp; sourceTree = "<group>"; };
+		978200251DB38E8D0067EEC9 /* Interface_CommandeMotor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interface_CommandeMotor.h; sourceTree = "<group>"; };
 		9782FF741DB298E60067EEC9 /* Index */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Index; sourceTree = BUILT_PRODUCTS_DIR; };
 		9782FF771DB298E60067EEC9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		9782FF791DB298E60067EEC9 /* Makefile */ = {isa = PBXFileReference; explicitFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -965,6 +964,7 @@
 		978200151DB2A6A00067EEC9 /* libraries */ = {
 			isa = PBXGroup;
 			children = (
+				978200231DB38E8D0067EEC9 /* Interface_CommandeMotor */,
 				978200161DB2A6A00067EEC9 /* DC_Motor */,
 				978200191DB2A6A00067EEC9 /* Wii_Chuck */,
 			);
@@ -990,6 +990,15 @@
 			path = Wii_Chuck;
 			sourceTree = "<group>";
 		};
+		978200231DB38E8D0067EEC9 /* Interface_CommandeMotor */ = {
+			isa = PBXGroup;
+			children = (
+				978200241DB38E8D0067EEC9 /* Interface_CommandeMotor.cpp */,
+				978200251DB38E8D0067EEC9 /* Interface_CommandeMotor.h */,
+			);
+			path = Interface_CommandeMotor;
+			sourceTree = "<group>";
+		};
 		9782FF681DB298E60067EEC9 = {
 			isa = PBXGroup;
 			children = (
@@ -1013,14 +1022,11 @@
 				9782FF791DB298E60067EEC9 /* Makefile */,
 				9782FF7B1DB298E60067EEC9 /* ReadMe.txt */,
 				978200001DB298E80067EEC9 /* revor.ino */,
-				9782001F1DB2B2010067EEC9 /* Interface_CommandeMotor.h */,
-				978200201DB2BE080067EEC9 /* Interface_CommandeMotor.cpp */,
 				9782FF7C1DB298E60067EEC9 /* Sketchbook */,
 				AAAA161015200242AA000000 /* Resources */,
 				9782FF7E1DB298E60067EEC9 /* Configurations */,
 				9782FFD01DB298E70067EEC9 /* Makefiles */,
 				9782FFF81DB298E80067EEC9 /* Utilities */,
-				978200221DB36A850067EEC9 /* firmwareMotor_NS.h */,
 			);
 			path = revor;
 			sourceTree = "<group>";
@@ -2620,7 +2626,7 @@
 				AA2A161015200242AA000091 /* Firmata.cpp in Sources */,
 				AA2A161015200242AA000092 /* Firmata.h in Sources */,
 				AA2A161015200242AA000096 /* BLEStream.cpp in Sources */,
-				978200211DB2BE080067EEC9 /* Interface_CommandeMotor.cpp in Sources */,
+				978200261DB38E8D0067EEC9 /* Interface_CommandeMotor.cpp in Sources */,
 				AA2A161015200242AA000097 /* BLEStream.h in Sources */,
 				AA2A161015200242AA000098 /* EthernetClientStream.cpp in Sources */,
 				AA2A161015200242AA000099 /* EthernetClientStream.h in Sources */,

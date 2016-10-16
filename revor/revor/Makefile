@@ -33,7 +33,8 @@ APP_LIBS_LIST = Wire
 #
 #
 USER_LIBS_LIST = DC_Motor \
-                 Wii_Chuck
+                 Wii_Chuck \
+                 Interface_CommandeMotor
 
 # List core, application and user's libraries to be excluded
 # For example, WiFi may crash on Arduino 1.0.2, Esplora on Arduino 1.0.3, Firmata on Teensy 3.0,
@@ -55,7 +56,7 @@ USER_LIBS_LIST = DC_Motor \
 # BOARD_PORT is optional
 # If not defined, BOARD_PORT = /dev/tty.usb* (default)
 #
-#BOARD_PORT = /dev/tty.usbmodem*
+BOARD_PORT = /dev/tty.usbmodem*
 
 # Xcode takes SKETCHBOOK_DIR from preferences.txt
 # If not defined, each IDE has its own SKETCHBOOK_DIR (default)
@@ -66,7 +67,7 @@ USER_LIBS_LIST = DC_Motor \
 # SERIAL_BAUDRATE for the serial console, 9600 by default
 # Uncomment and specify another speed
 #
-#SERIAL_BAUDRATE = 115200
+SERIAL_BAUDRATE = 115200
 
 
 # Miscellaneous

@@ -21,6 +21,9 @@ public:
     // Destructor
     ~Interface_CommandeMotor();
     
+    //initialize
+    void initialize();
+    
     // Getteur Setteur
     float getSpeed() const;
     void setSpeed(const float);
@@ -28,6 +31,7 @@ public:
     // Control function
     void updateSpeed();
     void decode_Direction();
+    void update();
     
 
     
@@ -37,7 +41,8 @@ private:
     DC_Motor* mpMotor;
     Wii_Chuck* mpChuck;
     
-    float mSpeed;
+    float mSpeed1; float mSpeed2;
+    int mRecJoyX; int mRecJoyY;
     
     
 };

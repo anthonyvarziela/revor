@@ -61,6 +61,8 @@ public:
     // Get Joy x,y values
     int readJoyX();
     int readJoyY();
+    int readZeroJoyX();
+    int readZeroJoyY();
     
     // Get buttons z,c values
     bool readButtonZ();
@@ -69,24 +71,22 @@ public:
     // *********** ************ ***********
     
     //
-    
-    //
-    byte nunchuk_decode_byte(byte x);
+    uint8_t nunchuk_decode_byte(uint8_t x);
     void write_zero();
     
+    void dataDisplay();
     
 private:
     
     //
-    int mJoyX;
-    int mJoyY;
+    int mJoyX; int mJoyXrecalib;
+    int mJoyY; int mJoyYrecalib;
     int mLastJoyX;
     int mLastJoyY;
     // From the calibration
     int mZero_JoyX;
     int mZero_JoyY;
     
-    int mCount;
     
     // Accel x,y,z axes
     int mAngles[3];

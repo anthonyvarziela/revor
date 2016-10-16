@@ -21,24 +21,31 @@
 // Set parameters
 
 
-// Include application, user and local libraries
+// Include application, user and local libraries
 #include "Wii_Chuck.h"
 #include "DC_Motor.hpp"
+#include "Interface_CommandeMotor.h"
 
 // Prototypes
-DC_Motor MotorFront = DC_Motor();
 
 // Define variables and constants
-
+Interface_CommandeMotor oCmd = Interface_CommandeMotor();
+//Wii_Chuck ff = Wii_Chuck();
 
 // Add setup code
 void setup()
 {
-    ;
+    Serial.begin(115200);
+    delay(100);
+    oCmd.initialize();
+    //ff.initialize();
 }
 
 // Add loop code
 void loop()
 {
-    ;
+    
+    //ff.update();
+    oCmd.update();
+    delay(100);
 }

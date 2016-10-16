@@ -19,7 +19,8 @@ void DC_Motor::initializeAll()
 {
     setAllEnablePins();
     setAllControlPins();
-    setSpeed(255);
+    setSpeed(1,0);
+    setSpeed(2,0);
 }
 
 void DC_Motor::setAllEnablePins()
@@ -105,9 +106,21 @@ void DC_Motor::initialize(int aMotor, byte aEn, byte aIn1, byte aIn2)
     }
 }
 
-void DC_Motor::setSpeed(int aSpeed)
+void DC_Motor::setSpeed(int aMotor, int aSpeed)
 {
-    mSpeed = aSpeed;
+    switch (aMotor)
+    {
+        case 1:
+            mSpeed1 = aSpeed;
+            break;
+            
+        case 2:
+            mSpeed2 = aSpeed;
+            break;
+            
+        default:
+            break;
+    }
 }
 
 
@@ -129,21 +142,49 @@ void DC_Motor::setSpeed(int aSpeed)
  |__________|_________|_________|
  
 */
-void DC_Motor::run(int aSpeed, bool bIn1, bool bIn2) //, bool bIn3, bool bIn4)
+void DC_Motor::run(int aMotor, int aSpeed, char* asCmd)
 {
-    setSpeed(aSpeed);
+    bool bIn1 = 0; bool bIn2 = 0;
     
-    // Enable - Speed - PWM
-    analogWrite(mEn1, mSpeed);
-    // analogWrite(mEn2, mSpeed);
+    if (strcmp(asCmd,"FORWARD"))
+    {
+        bIn1 = 0;
+        bIn2 = 1;
+    }
+    else if (strcmp(asCmd,"BACWARD"))
+    {
+        bIn1 = 1;
+        bIn2 = 0;
+    }
+    else
+    {
+        bIn1 = 0;
+        bIn2 = 0;
+    }
     
-    // Motor 1
-    digitalWrite(mIn1, bIn1);
-    digitalWrite(mIn2, bIn2);
-    
-    /*// Motor 2
-    digitalWrite(mIn3, bIn3);
-    digitalWrite(mIn4, bIn4);*/
+    switch (aMotor) {
+        case 1:
+            
+            // Motor 1
+            digitalWrite(mIn1, bIn1);
+            digitalWrite(mIn2, bIn2);
+            // Enable - Speed - PWM
+            analogWrite(mEn1, aSpeed);
+            break;
+            
+        case 2:
+            
+            // Motor 1
+            digitalWrite(mIn3, bIn1);
+            digitalWrite(mIn4, bIn2);
+            
+            // Enable - Speed - PWM
+            analogWrite(mEn2, aSpeed);
+            break;
+            
+        default:
+            break;
+    }
 }
 
 
