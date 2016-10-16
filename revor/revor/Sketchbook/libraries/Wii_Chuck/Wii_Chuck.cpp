@@ -66,7 +66,14 @@ void Wii_Chuck::update()
         mbBouttonZ = !( mStatus[5] & B00000001);
         mbBouttonC = !((mStatus[5] & B00000010) >> 1);
         write_zero(); // send the request for next bytes
+<<<<<<< Updated upstream
         
+=======
+
+        mJoyXrecalib = mJoyX - mZero_JoyX;
+        mJoyYrecalib = mJoyY - mZero_JoyY;
+        // dataDisplay();
+>>>>>>> Stashed changes
     }
 
 }
