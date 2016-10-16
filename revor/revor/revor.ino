@@ -4,13 +4,13 @@
 // Description of the project
 // Developed with [embedXcode](http://embedXcode.weebly.com)
 //
-// Author 		VARZIELA
-// 				MrRevor
+// Author 		MrRevor
+//
 //
 // Date			15.10.16 19:03
 // Version		<#version#>
 //
-// Copyright	© VARZIELA, 2016
+// Copyright	© MrRevor, 2016
 // Licence		<#licence#>
 //
 // See         ReadMe.txt for references

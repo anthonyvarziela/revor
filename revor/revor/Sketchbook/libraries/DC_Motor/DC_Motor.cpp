@@ -129,7 +129,7 @@ void DC_Motor::setSpeed(int aSpeed)
  |__________|_________|_________|
  
 */
-void DC_Motor::controlRevor_Motor(int aSpeed, bool bIn1, bool bIn2) //, bool bIn3, bool bIn4)
+void DC_Motor::run(int aSpeed, bool bIn1, bool bIn2) //, bool bIn3, bool bIn4)
 {
     setSpeed(aSpeed);
     

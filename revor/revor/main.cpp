@@ -7,7 +7,7 @@
 //
 // Project 		revor
 //
-// Created by 	VARZIELA, 15.10.16 19:03
+// Created by 	MrRevor, 15.10.16 19:03
 //              MrRevor
 //
 // Copyright 	© VARZIELA, 2016

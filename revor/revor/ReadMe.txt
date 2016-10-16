@@ -5,7 +5,7 @@
   Developed with embedXcode
 
   Project revor
-  Created by VARZIELA on 15.10.16
+  Created by MrRevor on 15.10.16
   Copyright © 2016 MrRevor
   Licence <#licence#>
 
