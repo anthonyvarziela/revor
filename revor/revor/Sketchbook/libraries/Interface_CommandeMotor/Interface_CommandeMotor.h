@@ -33,7 +33,11 @@ public:
     void decode_Direction();
     void update();
     
-
+    //
+    void remapConstrain(int&,int&);
+    
+    //
+    void progressiveSlowdown(int);
     
 private:
     
@@ -43,7 +47,6 @@ private:
     
     float mSpeed1; float mSpeed2;
     int mRecJoyX; int mRecJoyY;
-    
     
 };
 

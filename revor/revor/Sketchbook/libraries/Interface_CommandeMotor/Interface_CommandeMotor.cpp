@@ -4,6 +4,7 @@
 //
 
 #include <stdio.h>
+#include <math.h>
 #include "Interface_CommandeMotor.h"
 
 Interface_CommandeMotor::Interface_CommandeMotor():
@@ -44,24 +45,43 @@ float Interface_CommandeMotor::getSpeed() const
 
 // **************** **************** ****************
 
+void Interface_CommandeMotor::remapConstrain(int& aJoyX,int& aJoyY)
+{
+    aJoyX = map(aJoyX, -129, 300, 0, 512);
+    aJoyY = map(aJoyY, -121, 88, 0, 512);
+    
+    aJoyX = constrain(aJoyX, -255, 255);
+    aJoyY = constrain(aJoyY, -255, 255);
+}
+
 void Interface_CommandeMotor::updateSpeed()
 {
     int JoyX = mpChuck->readJoyX();
     int JoyY = mpChuck->readJoyY();
-    JoyX = map(JoyX, -129, 300, 0, 512);
-    JoyY = map(JoyY, -121, 88, 0, 512);
-    JoyX = constrain(JoyX, -255, 255);
-    JoyY = constrain(JoyY, -255, 255);
+    
+    remapConstrain(JoyX,JoyY);
+    
     if (JoyX >= JoyY)
     {
         mSpeed1 = abs(JoyX);
-        mSpeed2 = mSpeed1-abs(JoyY);
+        mSpeed2 = abs(JoyY);
     }
     else
     {
         mSpeed1 = abs(JoyY);
-        mSpeed2 = mSpeed1-abs(JoyX);
+        mSpeed2 = abs(JoyX);
     }
+}
+
+void Interface_CommandeMotor::progressiveSlowdown(int aJoy)
+{
+    int JoyX = mpChuck->readJoyX();
+    int JoyY = mpChuck->readJoyY();
+    
+    remapConstrain(JoyX,JoyY);
+    
+    mSpeed1 = abs(JoyY);
+    mSpeed2 = mSpeed1*constrain(exp((-abs(JoyX)+5)/(50)), 0, 255);
 }
 
 // Vitesse et direction moteurs
@@ -107,6 +127,7 @@ void Interface_CommandeMotor::decode_Direction()
                  ((ValueJoyY) >= (neutralNegativeZone)) &&
                  ((ValueJoyX) >= (neutralZone)))
         {
+            updateSpeed();
             mpMotor->run(1,mSpeed1,"FORWARD");
             mpMotor->run(2,0,"RELEASE");
         }
@@ -115,6 +136,7 @@ void Interface_CommandeMotor::decode_Direction()
                  ((ValueJoyY) >= (neutralNegativeZone)) &&
                  ((ValueJoyX) <= (neutralNegativeZone)))
         {
+            updateSpeed();
             mpMotor->run(1,0,"RELEASE");
             mpMotor->run(2,mSpeed1,"FORWARD");
         }
@@ -123,6 +145,7 @@ void Interface_CommandeMotor::decode_Direction()
                  ((ValueJoyX) >= (neutralNegativeZone)) &&
                  ((ValueJoyY) >= (neutralZone)))
         {
+            updateSpeed();
             mpMotor->run(1,mSpeed1,"FORWARD");
             mpMotor->run(2,mSpeed1,"FORWARD");
             
@@ -132,6 +155,7 @@ void Interface_CommandeMotor::decode_Direction()
                  ((ValueJoyX) >= (neutralNegativeZone)) &&
                  ((ValueJoyY) <= (neutralNegativeZone)))
         {
+            updateSpeed();
             mpMotor->run(1,mSpeed1,"BACKWARD");
             mpMotor->run(2,mSpeed1,"BACKWARD");
         }
