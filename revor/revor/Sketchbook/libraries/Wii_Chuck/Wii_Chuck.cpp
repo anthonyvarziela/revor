@@ -105,6 +105,7 @@ void Wii_Chuck::update()
 
         mJoyXrecalib = mJoyX - mZero_JoyX;
         mJoyYrecalib = mJoyY - mZero_JoyY;
+        
         dataDisplay();
     }
     counter = 0;

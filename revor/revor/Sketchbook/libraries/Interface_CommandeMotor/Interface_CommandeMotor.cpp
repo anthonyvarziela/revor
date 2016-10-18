@@ -10,7 +10,7 @@ Interface_CommandeMotor::Interface_CommandeMotor():
 mpMotor(NULL), mpChuck(NULL),
 mSpeed1(0), mSpeed2(0)
 {
-    Serial.println("Constructor Interface Commande -> Motor");
+    //Serial.println("Constructor Interface Commande -> Motor");
     mpMotor = new DC_Motor();
     mpChuck = new Wii_Chuck();
 }

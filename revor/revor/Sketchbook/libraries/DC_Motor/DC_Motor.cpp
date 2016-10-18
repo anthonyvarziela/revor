@@ -9,7 +9,7 @@ DC_Motor::DC_Motor():
 mEn1(0), mEn2(0),
 mIn1(0), mIn2(0), mIn3(0),mIn4(0)
 {
-    Serial.println("Default Constructor -> MotorFirmware");
+    //Serial.println("Default Constructor -> MotorFirmware");
 }
 
 void DC_Motor::initializeAll()
